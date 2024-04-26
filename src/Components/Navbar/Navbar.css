@@ -1,71 +1,131 @@
 .navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #083484;
+  color: #fff;
+  position: relative;
+  
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px;
 }
 
-#rednav {
-  width: 100%;
-  background-color: #e4252a;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
 
-#rednav > div:nth-child(2) {
-  flex-basis: 40%;
-}
-
-#rednav > div > img {
-  width: 150px;
-}
-
-#rednav > div > a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-.separator {
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-  padding: 0px 5px;
-}
-
-.bluenav {
-  width: 100%;
-}
-
-.nav-list ul {
+.navbar-nav {
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.nav-list ul li {
-  cursor: pointer;
-  padding: 10px;
-  position: relative; 
+.nav-item {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
 }
 
 .dropdown {
   display: none;
-  background-color: #1f4985;
-  position: absolute; 
-  top: 100%; 
-  left: 0; 
-  width: 200px; 
+  position: absolute;
+  background-color: #083484;
+  padding: 20px;
+  margin-top: 5px;
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: calc(100% - 80px); 
 }
 
-.nav-list ul li:hover .dropdown {
+
+.dropdown-item {
+  color: #fff;
+  list-style-type: none;
+  padding: 5px 0;
+}
+
+.nav-item:hover .dropdown {
   display: block;
 }
 
-.dropdown-item {
-  color: white;
-  padding: 10px;
+.nav-item:hover .dropdown,
+.nav-item:hover > .dropdown {
+  display: block;
 }
 
-.dropdown-item:hover {
-  background-color: #333;
+.red-navbar {
+  background-color: red;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.red-navbar input[type="text"] {
+  width: 200px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.red-navbar button {
+  padding: 5px 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.red-navbar .search-box {
+  display: flex;
+  align-items: center;
+}
+
+.red-navbar .search-box input[type="text"] {
+  width: 200px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.red-navbar .search-box i {
+  margin-right: 5px; 
+}
+
+.red-navbar .search-box button {
+  padding: 5px 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.red-navbar input[type="text"] {
+  width: 350px; 
+  padding: 20px 50px 20px 60px; 
+  margin-right: 50px;
+  background-image: url('https://cdn-icons-png.flaticon.com/128/149/149852.png'); 
+  background-repeat: no-repeat;
+  background-position: right center; 
+  background-size: 20px; 
+  border-radius: 20px; 
+}
+
+.red-navbar button {
+  padding: 5px 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.red-navbar {
+  background-color: red;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.red-navbar .rd-logo {
+  width: 60px; 
+  height: 60px; 
+  margin-right: 10px; 
+  margin-left: 0; 
 }

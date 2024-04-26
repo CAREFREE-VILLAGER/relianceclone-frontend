@@ -1,102 +1,231 @@
-import React from 'react';
-import './Navbar.css';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import './Navbar.css'; 
 
 function Navbar() {
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const [electronicsDropdownOpen, setElectronicsDropdownOpen] = useState(true); 
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(true); 
+  const [tvDropdownOpen, setTvDropdownOpen] = useState(true); 
+  const [washingMachineDropdownOpen, setWashingMachineDropdownOpen] = useState(true); 
+
+  const toggleElectronicsDropdown = () => setElectronicsDropdownOpen(!electronicsDropdownOpen);
+  const toggleMobileDropdown = () => setMobileDropdownOpen(!mobileDropdownOpen);
+  const toggleTvDropdown = () => setTvDropdownOpen(!tvDropdownOpen);
+  const toggleWashingMachineDropdown = () => setWashingMachineDropdownOpen(!washingMachineDropdownOpen);
 
   return (
-    <div className="navbar">
-      <div id="rednav">
-        <div>
-          <img
-            src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg"
-            alt="Reliance Digital Logo"
-          />
+    <>
+      {/* Red navbar */}
+      <nav className="red-navbar">
+        <img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg" alt="RD Logo" className="rd-logo" />
+        <div className="search-box">
+          <input type="text" placeholder="Search" />
+          
         </div>
-        <div>
-          <input
-            type="search"
-            id="storeSearch"
-            placeholder="Find your favourite products"
-          />
-          <button id="search">
-            <i className="fa fa-search fa-lg" aria-hidden="true"></i>
-          </button>
+        <div className="signup-login-buttons">
+          <button>Sign Up</button>
+          <button>Login</button>
         </div>
-        <div>
-          <a href="#">
-            <span><i className="fa fa-map-marker"></i></span>Select your location
+      </nav>
+
+
+
+    <nav className="navbar">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleElectronicsDropdown}>
+            MOBILE & ELECTRONICS
           </a>
-          <a href="#" className="separator">
-            <span><i className="fa fa-shopping-cart"></i></span>Cart
-          </a>
-          <a href="#">
-            <span><i className="fas fa-user-alt"></i></span>Login
-          </a>
-        </div>
-      </div>
-      
-      <div className='bluenav'>
-        <Slider {...settings}>
-          <div className='nav-list'>
-            <ul>
-              <li>Mobile & Tablet</li>
-              <div className="dropdown">
-                <div className="dropdown-item">Smartphones</div>
-                <div className="dropdown-item">Smartwatches</div>
-                
-              </div>
+          {electronicsDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Smartphones</li>
+              <li className="dropdown-item">Smartwatches</li>
+              <li className="dropdown-item">Apple</li>
+              <li className="dropdown-item">Samsung</li>
+              <li className="dropdown-item">Firboult</li>
+              <li className="dropdown-item">Noise</li>
+              <li className="dropdown-item">Boat</li>
+              <li className="dropdown-item">Accessories</li>
+              <li className="dropdown-item">Tablet Accessories</li>
+              <li className="dropdown-item">Mobile Accessories</li>
+              <li className="dropdown-item">Mobile Stand</li>
+              <li className="dropdown-item">Memory Card</li>
+              <li className="dropdown-item">Cable</li>
+              <li className="dropdown-item">Chargers</li>
             </ul>
-          </div>
-          
-          <div className='nav-list'>
-            <ul>
-              <li>Television</li>
-              <div className="dropdown">
-                <div className="dropdown-item">Item 1</div>
-                <div className="dropdown-item">Item 2</div>
-              </div>
+          )}
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleMobileDropdown}>
+            TELEVISION
+          </a>
+          {mobileDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Televisions</li>
+              <li className="dropdown-item">Smart Tv</li>
+              <li className="dropdown-item">32 Inch TV</li>
+              <li className="dropdown-item">43 Inch Tv</li>
+              <li className="dropdown-item">55 Inch Tv</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
             </ul>
-          </div>
-          
-          
-          
-        </Slider>
-      </div>
-    </div>
+          )}
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleTvDropdown}>
+            AUDIO
+          </a>
+          {tvDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">LED TV</li>
+              <li className="dropdown-item">Smart TV</li>
+              <li className="dropdown-item">Plasma TV</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleWashingMachineDropdown}>
+            HOME APPLIANCES
+          </a>
+          {washingMachineDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Top Load</li>
+              <li className="dropdown-item">Front Load</li>
+              <li className="dropdown-item">Semi-Automatic</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleWashingMachineDropdown}>
+            COMPUTER
+          </a>
+          {washingMachineDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Top Load</li>
+              <li className="dropdown-item">Front Load</li>
+              <li className="dropdown-item">Semi-Automatic</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleWashingMachineDropdown}>
+            CAMERAS
+          </a>
+          {washingMachineDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Top Load</li>
+              <li className="dropdown-item">Front Load</li>
+              <li className="dropdown-item">Semi-Automatic</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleWashingMachineDropdown}>
+            KITCHEN APPLIANCES
+          </a>
+          {washingMachineDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Top Load</li>
+              <li className="dropdown-item">Front Load</li>
+              <li className="dropdown-item">Semi-Automatic</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleWashingMachineDropdown}>
+            PERSONAL CARE
+          </a>
+          {washingMachineDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Top Load</li>
+              <li className="dropdown-item">Front Load</li>
+              <li className="dropdown-item">Semi-Automatic</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+
+        <li className="nav-item">
+          <a href="#" className="nav-link" onClick={toggleWashingMachineDropdown}>
+            ACCESSORIES
+          </a>
+          {washingMachineDropdownOpen && (
+            <ul className="dropdown">
+              <li className="dropdown-item">Top Load</li>
+              <li className="dropdown-item">Front Load</li>
+              <li className="dropdown-item">Semi-Automatic</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+              <li className="dropdown-item">Example Data</li>
+            </ul>
+          )}
+        </li>
+
+
+      </ul>
+    </nav>
+    </>
   );
 }
 
