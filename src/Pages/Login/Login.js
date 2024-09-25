@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import './Login.css'; 
+import { useNavigate } from 'react-router-dom'; 
+import Navbar from '../../Components/Navbar/Navbar'; 
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -18,7 +22,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://cute-gray-mussel-garb.cyclic.app/login', {
+      const response = await axios.post('https://reliance-clone-backend.onrender.com/login', {
         email,
         password,
       });
@@ -27,71 +31,74 @@ function Login() {
       alert(response.data.message);
       
       
+      localStorage.setItem('loggedInEmail', email);
+      
+      
+      navigate('/', { state: { email } });
+      
       setEmail('');
       setPassword('');
     } catch (error) {
-      
       console.error('Login Error:', error);
-      
-      alert('Please Check Your Credentials');
+      setError('Please Check Your Credentials');
     }
   };
 
   return (
-    <Box width={["95%", "90%", "90%", "90%"]} m="auto" mt={48} mb={12}>
-      <Flex
-        m="auto"
-        gap={["30px", "50px", "60px", "100px"]}
-        flexDirection={["column-reverse", "column-reverse", "column-reverse", "row"]}
-        alignItems="center"
-      >
-        <Box>
-          <Image
-            borderRadius={"15px"}
-            width={"800px"}
-            src="https://www.reliancedigital.in/akamai/images/mobile/Login-banner.jpeg"
-            alt="img"
-          />
-        </Box>
-  
-        <Box
-          borderRadius={"15px"}
-          width={["90%", "90%", "90%", "40%"]}
-          boxShadow="rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"
-        >
-          <Text p={4} borderBottom="1px solid #cecece" fontWeight={"semibold"}>
-            Login As User
-          </Text>
-  
-          <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label>Email:</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={handleEmailChange}
-                  required
-                />
-              </div>
-              <div>
-                <label>Password:</label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                  required
-                />
-              </div>
-              <button type="submit">Login</button>
-            </form>
-          </div>
-        </Box>
-      </Flex>
-    </Box>
+    <div>
+      <Navbar /> 
+
+      <div className="page-decoration">
+        
+        <div className="shape-circle shape-circle-1"></div>
+        <div className="shape-circle shape-circle-2"></div>
+        <div className="shape-circle shape-circle-3"></div>
+        <div className="shape-circle shape-circle-4"></div>
+        <div className="shape-circle shape-circle-5"></div>
+
+        
+        <div className="shape-rectangle shape-rectangle-1"></div>
+        <div className="shape-rectangle shape-rectangle-2"></div>
+        <div className="shape-rectangle shape-rectangle-3"></div>
+        <div className="shape-rectangle shape-rectangle-4"></div>
+
+        
+        <div className="shape-square shape-square-1"></div>
+        <div className="shape-square shape-square-2"></div>
+        <div className="shape-square shape-square-3"></div>
+        <div className="shape-square shape-square-4"></div>
+      </div>
+      
+      <div className="login-container">
+        <img
+          className="login-image"
+          src="https://www.reliancedigital.in/akamai/images/mobile/Login-banner.jpeg"
+          alt="Login banner"
+        />
+        <div className="login-form">
+          <h2>Login</h2>
+          {error && <div className="error">{error}</div>}
+          <form onSubmit={handleSubmit}>
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+            />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
-  
 }
 
 export default Login;

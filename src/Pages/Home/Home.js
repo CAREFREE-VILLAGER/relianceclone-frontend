@@ -1,9 +1,7 @@
-
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../Components/Navbar/Navbar';
-import React, { useRef, useState } from 'react';
-
+import { useLocation } from 'react-router-dom'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -12,14 +10,38 @@ import './Home.css';
 import { EffectCoverflow } from 'swiper/modules';
 import { Pagination, Navigation } from 'swiper/modules';
 import Footer from '../../Components/Footer/Footer';
-
 import MySlider from '../../Components/ProductList/ProductList';
 
 
 function Home() {
+  const location = useLocation();
+  const [email, setEmail] = useState(null);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const loggedInEmail = localStorage.getItem('loggedInEmail');
+    setEmail(loggedInEmail); 
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false); 
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [email]);
+
   return (
     <div>
       <Navbar />
+
+      {visible && (
+        <div className="logged-in-email">
+          {email ? <p>Welcome, you are logged in as: {email}</p> : <p>Welcome to the Home Page!</p>}
+        </div>
+      )}
+
+
       <section className='section1'>
         <Swiper
           effect={'coverflow'}
@@ -89,16 +111,11 @@ function Home() {
         </Swiper>
       </section>
 
+      <section className='section2'>
+        <MySlider />
+      </section>
 
-      
-        <section className='section2'>
-
-              <MySlider/>
-        </section>
-
-
-<Footer/>
-
+      <Footer />
     </div>
   );
 }

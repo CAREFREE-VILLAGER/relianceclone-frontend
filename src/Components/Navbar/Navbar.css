@@ -1,131 +1,182 @@
-.navbar {
-  background-color: #083484;
-  color: #fff;
-  position: relative;
-  
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 20px;
-}
-
-
-.navbar-nav {
-  list-style-type: none;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "OpenSans", Arial, Helvetica, sans-serif;
 }
 
-.nav-item {
-  display: inline-block;
-  margin-right: 40px;
+
+nav {
+  position: sticky;
+  width: 100%;
+  z-index: 1;
+  top: 0;
 }
 
-.nav-link {
-  color: #fff;
+
+#rednav {
+  background-color: #e4252a;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
+#rednav > div > img {
+  width: 150px;
+}
+
+#rednav > div:nth-child(2) {
+  flex-basis: 40%;
+}
+
+#rednav > div > a {
+  color: white;
+  margin: 10px;
+  font-size: 1.1vw;
   text-decoration: none;
 }
 
-.dropdown {
-  display: none;
+.saperator {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding: 0 5px;
+}
+
+#rednav > div:nth-child(2) > button {
+  border: none;
+  background-color: white;
   position: absolute;
-  background-color: #083484;
-  padding: 20px;
-  margin-top: 5px;
-  left: 50%; 
-  transform: translateX(-50%); 
-  width: calc(100% - 80px); 
+  margin: 2px -45px;
+  height: 30px;
+  width: 30px;
+}
+
+#storeSearch {
+  height: 35px;
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding: 15px;
 }
 
 
-.dropdown-item {
-  color: #fff;
-  list-style-type: none;
-  padding: 5px 0;
-}
-
-.nav-item:hover .dropdown {
-  display: block;
-}
-
-.nav-item:hover .dropdown,
-.nav-item:hover > .dropdown {
-  display: block;
-}
-
-.red-navbar {
-  background-color: red;
-  padding: 10px 20px;
+#bluenav {
+  background-color: #1f4985;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
+  justify-content: space-around;
+  height: 35px;
 }
 
-.red-navbar input[type="text"] {
-  width: 200px;
+#bluenav > button {
+  border: none;
+  width: auto;
+  height: 100%;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #1f4985;
+  color: white;
   padding: 5px;
-  margin-right: 10px;
-}
-
-.red-navbar button {
-  padding: 5px 10px;
-  border: none;
-  background-color: white;
+  font-size: 0.9vw;
   cursor: pointer;
 }
 
-.red-navbar .search-box {
+button.arrow {
+  border: none;
+  display: inline;
+  font-size: 0.8vw;
+  transform: rotate(-90deg);
+}
+
+#bluenav > button:hover {
+  background-color: #e4252a;
+}
+
+.drop-menu {
+  margin-top: 35px;
+  width: 95%;
+  height: auto;
+  position: absolute;
+  border: 1px solid gray;
+  border-top: none;
+  background-color: #263065;
+  display: none;
+}
+
+.drop-menu > div > ul {
+  font-weight: bold;
+  font-size: 1vw;
+  margin-bottom: 10px;
+}
+
+.drop-menu > div {
+  margin: 10px 25px;
+}
+
+.drop-menu > div > ul > li {
+  font-weight: 100;
+  list-style: none;
+  margin: 5px auto 10px auto;
+}
+
+.drop-menu > div > ul > li > a {
+  color: white;
+  text-decoration: none;
+}
+
+
+#bluenav > button:hover + .drop-menu,
+.drop-menu:hover {
   display: flex;
+}
+
+
+#bluenav > #mobile:hover + div.mobile,
+.mobile:hover {
+  display: flex;
+  background-image: url("https://www.reliancedigital.in/medias/Mobiles-Tablet-Menu-Banners-04-01-2021-01.jpg?context=bWFzdGVyfGltYWdlc3wxMTkxOTN8aW1hZ2UvanBlZ3xpbWFnZXMvaGM0L2gxNy85NTIwNDc1MzczNTk4LmpwZ3xjMmU0NzlmMWZjODQyMmFmNDZhMjA2NTUwZTVhNTI4ODcxMWVkZjM5YzgyNDY3YTE3ODU1OWM0NGQyY2E4MmVi");
+  background-size: cover;
+}
+
+
+#bluenav > #computer:hover + div.computer,
+.computer:hover {
+  background-image: url("https://www.reliancedigital.in/medias/Computers-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMzI5NDF8aW1hZ2UvanBlZ3xpbWFnZXMvaDQzL2g1Ny85NDU1NTQ0Nzk1MTY2LmpwZ3w3YThhZWU1NGYwZjY4ODA2Yjg1N2MyNzk4MTNlN2RkNGUxMjE1NjI5ZGQyMzAzOTk2NTMxZGIxOWMzOGM1NTJl");
+  background-size: cover;
+}
+
+
+#bluenav > #personal-care:hover + div.personal-care,
+.personal-care:hover {
+  background-image: url("https://www.reliancedigital.in/medias/Personal-Care-Menu-Banners-04-01-2021.jpg?context=bWFzdGVyfGltYWdlc3w2MTMxNnxpbWFnZS9qcGVnfGltYWdlcy9oZDUvaGI4Lzk0NTU1NDQ5OTE3NzQuanBnfDVlYjM3ZmQ0OWRhMGI0NmU2YjVmZDk1ZGE4Njc0MGJmNmQyMzEyMjNlMjI1MTJhMmU5MTVjNGFiMmU3N2M2YTE");
+  background-size: 100% 100%;
+}
+
+
+#bluenav > button:hover + .drop-menu,
+.drop-menu:hover {
+  display: flex;
+}
+
+
+#upper_nav {
+  background-color: #e42529;
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
-.red-navbar .search-box input[type="text"] {
-  width: 200px;
-  padding: 5px;
-  margin-right: 10px;
+#upper_nav > a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1vw;
+  font-weight: bold;
 }
 
-.red-navbar .search-box i {
-  margin-right: 5px; 
-}
-
-.red-navbar .search-box button {
-  padding: 5px 10px;
-  border: none;
-  background-color: white;
-  cursor: pointer;
-}
-
-.red-navbar input[type="text"] {
-  width: 350px; 
-  padding: 20px 50px 20px 60px; 
-  margin-right: 50px;
-  background-image: url('https://cdn-icons-png.flaticon.com/128/149/149852.png'); 
-  background-repeat: no-repeat;
-  background-position: right center; 
-  background-size: 20px; 
-  border-radius: 20px; 
-}
-
-.red-navbar button {
-  padding: 5px 10px;
-  border: none;
-  background-color: white;
-  cursor: pointer;
-}
-
-.red-navbar {
-  background-color: red;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-}
-
-.red-navbar .rd-logo {
-  width: 60px; 
-  height: 60px; 
-  margin-right: 10px; 
-  margin-left: 0; 
+.saperator {
+  border-left: 1px solid white;
+  margin: 0 10px;
+  padding-left: 10px;
 }

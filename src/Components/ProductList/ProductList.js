@@ -8,7 +8,7 @@ function MySlider() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://cute-gray-mussel-garb.cyclic.app/api/products')
+    fetch('https://reliance-clone-backend.onrender.com/api/products')
       .then(response => response.json())
       .then(data => setProducts(data))
       .catch(error => console.error('Error fetching products:', error));

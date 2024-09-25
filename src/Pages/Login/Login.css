@@ -1,0 +1,138 @@
+
+
+body {
+    background-color: #f7f7f7; 
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    position: relative; 
+    overflow: auto; 
+  }
+  
+  .login-container {
+    max-width: 900px; 
+    margin: 48px auto; 
+    display: flex; 
+    gap: 30px; 
+    align-items: center; 
+    position: relative; 
+    z-index: 1; 
+  }
+  
+  .login-image {
+    flex: 1; 
+    border-radius: 15px; 
+    max-width: 100%; 
+  }
+  
+  .login-form {
+    flex: 1; 
+    background-color: #fff; 
+    border-radius: 15px; 
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px; 
+    padding: 20px; 
+  }
+  
+  h2 {
+    margin-bottom: 20px; 
+    color: #333; 
+  }
+  
+  label {
+    display: block; 
+    margin: 10px 0 5px; 
+    color: #555; 
+  }
+  
+  input {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
+  }
+  
+  button {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+  
+  button:hover {
+    background-color: #0056b3; 
+  }
+  
+  .error {
+    color: red; 
+    margin-bottom: 10px; 
+  }
+  
+  
+  .page-decoration {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; 
+  }
+  
+  
+  .shape-circle {
+    position: absolute;
+    border-radius: 50%; 
+    opacity: 0.2; 
+    z-index: -1; 
+  }
+  
+  
+  .shape-circle-1 { width: 150px; height: 150px; background: linear-gradient(45deg, #ff6b6b, #f0e130); top: 20%; left: 10%; }
+  .shape-circle-2 { width: 200px; height: 200px; background: linear-gradient(45deg, #30cfd0, #330867); top: 70%; right: 15%; }
+  .shape-circle-3 { width: 180px; height: 180px; background: linear-gradient(45deg, #8e44ad, #3498db); top: 30%; left: 30%; }
+  .shape-circle-4 { width: 120px; height: 120px; background: linear-gradient(45deg, #f39c12, #e74c3c); bottom: 30%; left: 50%; }
+  .shape-circle-5 { width: 160px; height: 160px; background: linear-gradient(45deg, #2ecc71, #27ae60); bottom: 50%; right: 20%; }
+  
+  
+  .shape-rectangle {
+    position: absolute;
+    opacity: 0.2; 
+    z-index: -1; 
+  }
+  
+  
+  .shape-rectangle-1 { width: 250px; height: 100px; background: linear-gradient(45deg, #f15a24, #fce38a); top: 30%; left: 40%; }
+  .shape-rectangle-2 { width: 300px; height: 150px; background: linear-gradient(45deg, #8e44ad, #3498db); bottom: 10%; right: 10%; }
+  .shape-rectangle-3 { width: 220px; height: 80px; background: linear-gradient(45deg, #ff6b6b, #f0e130); top: 40%; left: 10%; }
+  .shape-rectangle-4 { width: 180px; height: 60px; background: linear-gradient(45deg, #30cfd0, #330867); top: 80%; right: 20%; }
+  
+  
+  .shape-square {
+    position: absolute;
+    opacity: 0.2; 
+    z-index: -1; 
+  }
+  
+  
+  .shape-square-1 { width: 100px; height: 100px; background: linear-gradient(45deg, #f39c12, #e74c3c); top: 50%; left: 20%; }
+  .shape-square-2 { width: 80px; height: 80px; background: linear-gradient(45deg, #2ecc71, #27ae60); bottom: 20%; left: 60%; }
+  .shape-square-3 { width: 90px; height: 90px; background: linear-gradient(45deg, #3498db, #2980b9); top: 10%; right: 25%; }
+  .shape-square-4 { width: 70px; height: 70px; background: linear-gradient(45deg, #e74c3c, #c0392b); bottom: 40%; left: 40%; }
+  
+
+  .home-button {
+    margin-top: 10px; 
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+  
+  .home-button:hover {
+    background-color: #0056b3; 
+  }
+  
